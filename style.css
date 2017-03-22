@@ -1,6 +1,10 @@
 .menu {
-    background: #64bc45;
-}
-.converter_1 {
     background: #6f9d6a;
+}
+.converter {
+    background: #6f9d6a;
+    padding: 10px;
+}
+.InputValue {
+
 }

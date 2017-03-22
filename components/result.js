@@ -28,11 +28,39 @@ export default class Result extends React.Component{
                 secondUnit = "Kg";
             }
                 break;
+            case "Cm": {
+                firstValue = this.props.one / 10;
+                firstUnit = "Dm";
+                secondValue = this.props.one / 100;
+                secondUnit = "M";
+            }
+                break;
+            case "Dm": {
+                firstValue = this.props.one * 10;
+                firstUnit = "Cm";
+                secondValue = this.props.one / 10;
+                secondUnit = "M";
+            }
+                break;
+            case "M": {
+                firstValue = this.props.one * 100;
+                firstUnit = "Cm";
+                secondValue = this.props.one * 10;
+                secondUnit = "Dm";
+            }
+                break;
         }
+        let rez1 = this.props.one && this.props.two
+                    ? this.props.one + " " + this.props.two + " = " + firstValue + " " + firstUnit
+                    : "";
+
+        let rez2 = this.props.one && this.props.two
+                    ? this.props.one + " " + this.props.two + " = " + secondValue + " " + secondUnit
+                    : "";
         return (
             <div className="result">
-                <h3>{firstValue + " " + firstUnit}</h3>
-                <h3>{secondValue + " " + secondUnit}</h3>
+                <h3>{rez1}</h3>
+                <h3>{rez2}</h3>
             </div>
         );
     }

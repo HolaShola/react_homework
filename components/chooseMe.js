@@ -47,7 +47,7 @@ export default class ChooseMe extends React.Component{
                         </label>
                     </div>
                 </form>
-                <InputValue chooseValue={this.state.selectedOption}/>
+                <InputValue chooseValue={this.state.selectedOption} />
             </div>
         );
     }
