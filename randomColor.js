@@ -1,19 +1,12 @@
-/*function randomBetween(bottomNumber, topNumber) {
-    return Math.round((topNumber - bottomNumber) * Math.random() + bottomNumber);
+function randomBetween(bottomNumber, topNumber) {
+    let result = Math.round((topNumber - bottomNumber) * Math.random() + bottomNumber);
+    return result.toString(16);
 }
 
-function randomColor() {
-    var x = randomBetween(0, 255).toString(16);
-    var y = randomBetween(0, 255).toString(16);
-    var z = randomBetween(0, 255).toString(16);
-    var str = '#' + x + y + z;
-    return str;
-}*/
-
 export default function randomColor() {
-    var x = Math.round(255 * Math.random()).toString(16);
-    var y = Math.round(255 * Math.random()).toString(16);
-    var z = Math.round(255 * Math.random()).toString(16);
-    var str = '#' + x + y + z;
+    let x = randomBetween(0, 255);
+    let y = randomBetween(0, 255);
+    let z = randomBetween(0, 255);
+    let str = '#' + x + y + z;
     return str;
 }

@@ -1,17 +1,9 @@
-/*
-import { combineReducers } from 'redux';
-import num from './reducer_num';
-import from from './reducer_from';
-import to from './reducer_to';
-import log from './reducer_log';
-
-export default combineReducers({
-    num,
-    from,
-    to,
-    log
-})
-*/
+import {
+    SET_NUM,
+    CONVERT_FROM,
+    CONVERT_TO,
+    SET_LOG
+} from '../constants/const';
 
 const initialState = {
     log: false,
@@ -27,24 +19,20 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case 'SET_NUM':
-//            return {
-//                ...state,
-//                num: action.payload
-//            }
+        case SET_NUM:
             return {
                 ...state,
-                    converters: [
-                        ...state.converters,
-                        {
-                            num: action.payload,
-                            from: state.converters[state.converters.length - 1].from,
-                            to: state.converters[state.converters.length - 1].to,
-                            time: (new Date()).toLocaleString()
-                        }
-                    ]
+                converters: [
+                    ...state.converters,
+                    {
+                        num: action.payload,
+                        from: state.converters[state.converters.length - 1].from,
+                        to: state.converters[state.converters.length - 1].to,
+                        time: (new Date()).toLocaleString()
+                    }
+                ]
             }
-        case 'CONVERT_FROM':
+        case CONVERT_FROM:
             return {
                ...state,
                converters: [
@@ -57,7 +45,7 @@ export default function reducer(state = initialState, action) {
                    }
                ]
            }
-        case 'CONVERT_TO':
+        case CONVERT_TO:
             return {
                 ...state,
                 converters: [
@@ -70,7 +58,7 @@ export default function reducer(state = initialState, action) {
                     }
                 ]
             }
-        case 'SET_LOG':
+        case SET_LOG:
             return {
                 ...state,
                 log: action.payload

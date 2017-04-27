@@ -12,17 +12,13 @@ export class Logger extends React.Component{
             <div className='app'>
                 {this.props.converters.map(function(obj, index) {
                     return <p key={index} style={{backgroundColor: randomColor()}}>
-                               {obj.time}:{obj.num}---{obj.from}---{obj.to}
+                               {obj.time} : from {obj.num} {obj.from} - to {obj.to}
                            </p>
                 })}
             </div>
         );
     }
 }
-
-/*export const mapStateToProps = state => ({
-    converters: state.converters
-})*/
 
 export default connect(
     state => ({
