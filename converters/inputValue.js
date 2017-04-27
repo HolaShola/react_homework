@@ -1,29 +1,24 @@
 import React from 'react';
-import ChooseMe from '../components/chooseMe';
-import Result from '../components/result';
+import styles from '../style/inputValue.css';
 
 export default class InputValue extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {value: ""};
-        this.handleChange = this.handleChange.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
-    handleChange(e) {
-         this.setState({value: e.target.value});
+    onChange() {
+        this.props.chooseValue('SET_NUM', this.inputValue.value);
     }
     render(){
         return (
-            <div className='InputValue'>
+            <div className='app'>
                 <form>
                     <input
                         type="text"
-                        value={this.state.value}
-                        onChange={this.handleChange}
+                        ref={(input) => this.inputValue = input}
+                        onChange={this.onChange}
                     />
                 </form>
-                <Result one={this.state.value}
-                        two={this.props.chooseValue}
-                />
             </div>
         );
     }

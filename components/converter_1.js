@@ -1,14 +1,13 @@
 import React from 'react';
-import InputValue from '../converters/inputValue';
-import ChooseMe from './chooseMe';
+import Converter from './converter';
 
-export default class Converter_1 extends React.Component{
-    render(){
+export default class Converter_1 extends React.Component {
+    render() {
         return (
-            <div className='converter'>
-                <h3>Mass converter</h3>
-                <ChooseMe value={["g", "Kg", "T"]}/>
-            </div>
+            <Converter
+                converterName={"Mass"}
+                arr_of_val={["g", "Kg", "T"]}
+            />
         );
     }
 }

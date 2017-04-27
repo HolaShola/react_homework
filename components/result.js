@@ -2,65 +2,83 @@ import React from 'react';
 
 export default class Result extends React.Component{
     render(){
-        let firstValue = "";
-        let secondValue = "";
-        let firstUnit = "";
-        let secondUnit = "";
-        switch (this.props.two) {
-            case "g": {
-                firstValue = this.props.one / 1000;
-                firstUnit = "Kg";
-                secondValue = this.props.one / 1000000;
-                secondUnit = "T";
+        let rez;
+        let num = this.props.num;
+        let from = this.props.from;
+        let to = this.props.to;
+        if (this.props.converterName === "Mass") {
+            switch (from) {
+                case "g": {
+                    if (to === "Kg") {
+                        rez = num / 1000;
+                    } else if (to === "T") {
+                        rez = num / 1000000;
+                    } else if (to === "g") {
+                        rez = num;
+                    }
+                }
+                    break;
+                case "Kg": {
+                    if (to === "g") {
+                        rez = num * 1000;
+                    } else if (to === "T") {
+                        rez = num / 1000;
+                    } else if (to === "Kg") {
+                        rez = num;
+                    }
+                }
+                    break;
+                case "T": {
+                    if (to === "g") {
+                        rez = num * 1000000;
+                    } else if (to === "Kg") {
+                        rez = num * 1000;
+                    } else if (to === "T") {
+                        rez = num;
+                    }
+                }
+                    break;
             }
-                break;
-            case "Kg": {
-                firstValue = this.props.one * 1000;
-                firstUnit = "g";
-                secondValue = this.props.one / 1000;
-                secondUnit = "T";
+        } else if (this.props.converterName === "Distance") {
+            switch (from) {
+                case "Cm": {
+                    if (to === "Dm") {
+                        rez = num / 10;
+                    } else if (to === "M") {
+                        rez = num / 100;
+                    } else if (to === "Cm") {
+                        rez = num;
+                    }
+                }
+                    break;
+                case "Dm": {
+                    if (to === "Cm") {
+                        rez = num * 10;
+                    } else if (to === "M") {
+                        rez = num / 10;
+                    } else if (to === "Dm") {
+                        rez = num;
+                    }
+                }
+                    break;
+                case "M": {
+                    if (to === "Cm") {
+                        rez = num * 100;
+                    } else if (to === "Dm") {
+                        rez = num * 10;
+                    } else if (to === "M") {
+                        rez = num;
+                    }
+                }
+                    break;
             }
-                break;
-            case "T": {
-                firstValue = this.props.one * 1000000;
-                firstUnit = "g";
-                secondValue = this.props.one * 1000;
-                secondUnit = "Kg";
-            }
-                break;
-            case "Cm": {
-                firstValue = this.props.one / 10;
-                firstUnit = "Dm";
-                secondValue = this.props.one / 100;
-                secondUnit = "M";
-            }
-                break;
-            case "Dm": {
-                firstValue = this.props.one * 10;
-                firstUnit = "Cm";
-                secondValue = this.props.one / 10;
-                secondUnit = "M";
-            }
-                break;
-            case "M": {
-                firstValue = this.props.one * 100;
-                firstUnit = "Cm";
-                secondValue = this.props.one * 10;
-                secondUnit = "Dm";
-            }
-                break;
         }
-        let rez1 = this.props.one && this.props.two
-                    ? this.props.one + " " + this.props.two + " = " + firstValue + " " + firstUnit
-                    : "";
-
-        let rez2 = this.props.one && this.props.two
-                    ? this.props.one + " " + this.props.two + " = " + secondValue + " " + secondUnit
+        let result = num && from && to
+                    ? num + " " + from + " = " + rez + " " + to
                     : "";
         return (
             <div className="result">
-                <h3>{rez1}</h3>
-                <h3>{rez2}</h3>
+                <h3>{result}</h3>
             </div>
         );
     }

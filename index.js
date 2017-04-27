@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
-import Menu from './components/menu';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore'
 
-class App extends React.Component {
-    render() {
-        return (
-                <div>
-                    <Routes />
-                </div>
-        );
-    }
-}
+const store = configureStore()
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <Routes />
+    </Provider>,
+    document.querySelector('#root')
+);

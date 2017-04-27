@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Welcome extends React.Component{
+/*export default class Welcome extends React.Component{
     render(){
         return (
             <div>
@@ -8,4 +8,7 @@ export default class Welcome extends React.Component{
             </div>
         );
     }
+}*/
+export default function Welcome() {
+    return <h2>Hello, User</h2>;
 }

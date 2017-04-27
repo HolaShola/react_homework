@@ -1,5 +1,4 @@
 import React from 'react';
-import ChooseMe from '../components/chooseMe';
 import Result from '../components/result';
 
 export default class InputTwoValue extends React.Component{

@@ -1,14 +1,11 @@
 import React from 'react';
-import InputValue from '../converters/inputValue';
-import ChooseMe from './chooseMe';
+import Converter from './converter';
 
-export default class Converter_2 extends React.Component{
-    render(){
-        return (
-            <div className='converter'>
-                <h3>Distance converter</h3>
-                <ChooseMe value={["Cm", "Dm", "M"]}/>
-            </div>
-        );
-    }
+export default function Converter_2() {
+    return (
+        <Converter
+            converterName={"Distance"}
+            arr_of_val={["Cm", "Dm", "M"]}
+        />
+    );
 }
