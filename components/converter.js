@@ -6,6 +6,17 @@ import ConvertTo from './to';
 import Logger from './logger';
 import { connect } from 'react-redux';
 
+const defaultProps = {
+    converters: [
+        {
+            num: 0,
+            from: '',
+            to: '',
+            time: ''
+        }
+    ]
+};
+
 export class Converter extends React.Component{
     constructor(props) {
         super(props);
@@ -52,6 +63,8 @@ export class Converter extends React.Component{
         );
     }
 }
+
+Converter.defaultProps = defaultProps;
 
 export default connect(
     state => ({

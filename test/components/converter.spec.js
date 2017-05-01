@@ -1,4 +1,3 @@
-/*
 import React from 'react';
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
@@ -9,16 +8,39 @@ import assert from 'assert';
 import { Converter } from '../../components/converter';
 
 describe('<Converter />', () => {
+    const wrapper = shallow(<Converter />);
+
     it('renders', () => {
-        const wrapper = mount(<Converter />)
         assert(wrapper.length, 'rendered')
     });
 
-    it('should have props', () => {
-        const wrapper = mount(<Converter />)
-        expect(wrapper.props().converterName).to.be.defined;
-        expect(wrapper.props().arr_of_val).to.be.defined;
+    it('child Result components', () => {
+        expect(wrapper.find('Result').length).to.equal(1);
     });
-})
+    it('child ConvertFrom components', () => {
+        expect(wrapper.find('ConvertFrom').length).to.equal(1);
+    });
+    it('child ConvertTo components', () => {
+        expect(wrapper.find('ConvertTo').length).to.equal(1);
+    });
+    it('child InputValue components', () => {
+        expect(wrapper.find('InputValue').length).to.equal(1);
+    });
 
-*/
+    it('renders the custom props', () => {
+        wrapper.setProps({
+            converterName: 'Hello, world'
+        });
+
+        expect(wrapper.contains('Hello, world')).to.equal(true);
+    });
+
+    /*it('renders the custom props', () => {
+        wrapper.setProps({
+            log: false
+        });
+
+        expect(wrapper.contains('Logger')).to.equal(true);
+    });*/
+
+})

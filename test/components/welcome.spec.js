@@ -1,13 +1,11 @@
 import React from 'react';
-//import { expect } from 'chai';
-//import { describe, it } from 'mocha';
+import { describe, it } from 'mocha';
 import { mount, shallow } from 'enzyme';
-//import { spy } from 'sinon';
 import assert from 'assert';
 
 import Welcome from '../../components/welcome';
 
-describe('welcome component', () => {
+describe('<Welcome />', () => {
     it('renders', () => {
         const wrapper = shallow(<Welcome />)
         assert(wrapper.length, 'rendered')

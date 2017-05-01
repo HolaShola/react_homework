@@ -3,6 +3,17 @@ import { connect } from 'react-redux';
 import styles from '../style/logger.css';
 import randomColor from '../randomColor';
 
+const defaultProps = {
+    converters: [
+        {
+            num: 0,
+            from: '',
+            to: '',
+            time: ''
+        }
+    ]
+};
+
 export class Logger extends React.Component{
     constructor(props) {
         super(props);
@@ -19,6 +30,8 @@ export class Logger extends React.Component{
         );
     }
 }
+
+Logger.defaultProps = defaultProps;
 
 export default connect(
     state => ({

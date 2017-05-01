@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-export default class ConvertFrom extends React.Component{
+const defaultProps = {
+    arr_of_val : ["g", "Kg", "T"],
+};
+
+class ConvertFrom extends Component{
     constructor(props) {
         super(props);
         this.onChange = this.onChange.bind(this);
@@ -19,33 +23,39 @@ export default class ConvertFrom extends React.Component{
     render(){
         return (
         <div>
-            <form>
-                <label>
-                    <input type="radio"
-                        defaultValue={this.props.arr_of_val[0]}
-                        onChange={this.onChange}
-                        ref="first_radio"
-                    />
-                    {this.props.arr_of_val[0]}
-                </label>
-                <label>
-                    <input type="radio"
-                        defaultValue={this.props.arr_of_val[1]}
-                        onChange={this.onChange}
-                        ref="second_radio"
-                    />
-                    {this.props.arr_of_val[1]}
-                </label>
-                <label>
-                    <input type="radio"
-                        defaultValue={this.props.arr_of_val[2]}
-                        onChange={this.onChange}
-                         ref="third_radio"
-                    />
-                    {this.props.arr_of_val[2]}
-                </label>
-            </form>
+            <div className="convert-from">
+                <form>
+                    <label>
+                        <input type="radio"
+                            defaultValue={this.props.arr_of_val[0]}
+                            onChange={this.onChange}
+                            ref="first_radio"
+                        />
+                        {this.props.arr_of_val[0]}
+                    </label>
+                    <label>
+                        <input type="radio"
+                            defaultValue={this.props.arr_of_val[1]}
+                            onChange={this.onChange}
+                            ref="second_radio"
+                        />
+                        {this.props.arr_of_val[1]}
+                    </label>
+                    <label>
+                        <input type="radio"
+                            defaultValue={this.props.arr_of_val[2]}
+                            onChange={this.onChange}
+                             ref="third_radio"
+                        />
+                        {this.props.arr_of_val[2]}
+                    </label>
+                </form>
+            </div>
         </div>
         );
     }
 }
+
+ConvertFrom.defaultProps = defaultProps;
+
+export default ConvertFrom;

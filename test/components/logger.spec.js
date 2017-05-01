@@ -1,4 +1,3 @@
-/*
 import React from 'react';
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
@@ -9,9 +8,10 @@ import assert from 'assert';
 import {Logger} from '../../components/logger';
 
 describe('<Logger />', () => {
+    const wrapper = shallow(<Logger />);
+
     it('renders', () => {
-        const wrapper = shallow(<Logger />)
-        assert(wrapper.length, 'rendered')
+       assert(wrapper.length, 'rendered')
     })
 })
-*/
+
